@@ -162,6 +162,29 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-    </application>
 
+    
+                     <!-- emma updated -->
+                    <activity 
+                        android:label="EmmaInstrumentationActivity" 
+                        android:name="ca.rmen.android.poetassistant.EmmaInstrument.InstrumentedActivity"/>
+                    <receiver android:name="ca.rmen.android.poetassistant.EmmaInstrument.CollectCoverageReceiver">
+                    <intent-filter>
+                        <action android:name="evolutiz.emma.COLLECT_COVERAGE" />
+                    </intent-filter>
+                </receiver>
+                 <!-- emma updated -->
+                    </application>
+
+                
+                 <!-- emma updated -->
+                 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>  
+                 <instrumentation 
+                    android:handleProfiling="true" 
+                    android:label="EmmaInstrumentation" 
+                    android:name="ca.rmen.android.poetassistant.EmmaInstrument.EmmaInstrumentation" 
+                    android:targetPackage="ca.rmen.android.poetassistant"/>
+                 <!-- emma updated -->
+    
+                
 </manifest>
